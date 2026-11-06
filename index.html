@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080c17">
+  <meta name="description" content="NFC: una forma elegante de conectar, compartir y descubrir con un solo toque.">
+  <meta property="og:title" content="NFC · Un toque, infinitas posibilidades">
+  <meta property="og:description" content="Conecta, comparte y descubre en una sola página.">
+  <meta property="og:type" content="website">
+  <title>NFC · Un toque, infinitas posibilidades</title>
+  <style>
+    :root { color-scheme:dark; --bg:#080c17; --panel:#11192b; --line:rgba(179,210,242,.15); --muted:#9ba9c0; --white:#f6f8ff; --cyan:#62e4e0; --violet:#a6a0ff; }
+    *, *::before, *::after { box-sizing:border-box }
+    html { scroll-behavior:smooth }
+    body { margin:0; background:var(--bg); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--white); -webkit-font-smoothing:antialiased; }
+    body::before {content:""; position:fixed; inset:0; background:radial-gradient(ellipse 55% 35% at 90% 9%,rgba(73,86,196,.21),transparent 85%),radial-gradient(ellipse 44% 40% at 2% 44%,rgba(27,180,176,.08),transparent 85%); z-index:-1;pointer-events:none}
+    a {color:inherit;text-decoration:none} button {font:inherit} button:focus-visible,a:focus-visible {outline:2px solid var(--cyan);outline-offset:4px}
+    .shell {max-width:1160px;margin:0 auto;padding:0 28px}
+    header {height:88px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06)}
+    .brand {display:inline-flex;align-items:center;gap:12px;font-size:21px;letter-spacing:.12em;font-weight:850}
+    .brand-mark {width:39px;height:39px;display:grid;place-items:center;border:1px solid rgba(98,228,224,.45);border-radius:13px;color:var(--cyan);background:rgba(98,228,224,.08)}
+    nav {display:flex;align-items:center;gap:30px;color:#b7c2d3;font-size:13px;font-weight:650}
+    nav a:hover, .textlink:hover {color:var(--cyan)}
+    .nav-cta {border:1px solid var(--line);border-radius:40px;padding:12px 18px;color:var(--white)}
+    .hero {padding-top:110px;padding-bottom:110px;display:grid;grid-template-columns:minmax(0,1.03fr) minmax(320px,.97fr);gap:42px;align-items:center}
+    .eyebrow {font-weight:750;font-size:11px;letter-spacing:.21em;color:var(--cyan);display:flex;align-items:center;gap:11px;text-transform:uppercase}
+    .eyebrow::before {content:"";display:inline-block;width:28px;height:1px;background:var(--cyan)}
+    h1 {font-size:clamp(54px,6.2vw,92px);font-weight:800;line-height:1.035;letter-spacing:-.075em;margin:25px 0 22px}
+    h1 .gradient {background:linear-gradient(110deg,var(--cyan) 0%,#9de5e9 37%,var(--violet) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead {color:#aebbd0;line-height:1.75;font-size:17px;max-width:525px;margin:0 0 35px}
+    .actions {display:flex;flex-wrap:wrap;align-items:center;gap:13px}
+    .primary {border:0;background:var(--cyan);color:#071824;font-weight:800;padding:16px 23px;border-radius:12px;display:inline-flex;align-items:center;gap:12px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 12px 48px rgba(73,220,218,.17)}
+    .primary:hover {transform:translateY(-2px);box-shadow:0 16px 40px rgba(73,220,218,.23)}
+    .secondary {border:1px solid var(--line);background:rgba(255,255,255,.025);color:var(--white);font-weight:720;padding:15px 21px;border-radius:12px;cursor:pointer;transition:background .2s}
+    .secondary:hover {background:rgba(255,255,255,.07)}
+    .hint {color:#718199;font-size:12px;margin-top:22px;display:flex;align-items:center;gap:9px}
+    .hint i {display:block;width:6px;height:6px;background:#66e9aa;border-radius:50%;box-shadow:0 0 10px #66e9aa}
+    .visual {min-height:450px;display:grid;place-items:center;position:relative;isolation:isolate}
+    .aura {width:410px;height:410px;position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(93,230,223,.16) 0%,rgba(122,95,220,.12) 38%,transparent 72%);filter:blur(6px);z-index:-1}
+    .ring {border:1px solid rgba(115,229,234,.12);width:435px;height:435px;border-radius:50%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:-1}
+    .ring::after {content:"";position:absolute;inset:43px;border:1px dashed rgba(115,229,234,.13);border-radius:50%}
+    .chip {width:min(100%,344px);height:390px;padding:29px;border-radius:28px;background:linear-gradient(149deg,#253449 0%,#142035 39%,#14152d 100%);border:1px solid rgba(190,233,244,.24);position:relative;overflow:hidden;transform:rotate(-8deg);box-shadow:28px 37px 65px rgba(0,0,0,.35),inset 0 1px 1px rgba(255,255,255,.1)}
+    .chip::before {content:"";position:absolute;inset:-130px -100px auto auto;width:360px;height:310px;transform:rotate(-20deg);background:linear-gradient(120deg,transparent 40%,rgba(150,196,255,.08) 50%,transparent 60%)}
+    .chip::after {content:"";position:absolute;left:-140px;right:-70px;bottom:-200px;height:330px;border:1px solid rgba(98,228,224,.19);transform:rotate(-20deg);border-radius:50%}
+    .chip-top {display:flex;justify-content:space-between;align-items:center;color:#d6e2ef;font-size:12px;font-weight:700;letter-spacing:.16em}
+    .chip-logo {color:var(--cyan)}
+    .chip-wave {position:absolute;top:48%;left:50%;transform:translate(-50%,-50%);width:140px;height:140px;border:1px solid rgba(98,228,224,.48);border-radius:50%;display:grid;place-items:center;color:var(--cyan)}
+    .chip-wave::before,.chip-wave::after {content:"";position:absolute;border:1px solid rgba(98,228,224,.23);border-radius:50%;inset:-26px}
+    .chip-wave::after {inset:-53px;border-color:rgba(98,228,224,.12)}
+    .chip-bottom {position:absolute;bottom:30px;left:29px;right:29px;display:flex;align-items:end;justify-content:space-between}
+    .chip-bottom strong {font-size:26px;letter-spacing:.01em}
+    .chip-bottom small {display:block;color:#91a1b7;font-size:11px;letter-spacing:.14em;margin-top:6px}
+    .floating {position:absolute;background:rgba(19,30,49,.94);border:1px solid rgba(180,221,240,.16);box-shadow:0 18px 45px rgba(0,0,0,.17);padding:13px 17px;border-radius:14px;font-size:12px;color:#c7d6e8;display:flex;align-items:center;gap:10px;backdrop-filter:blur(12px)}
+    .floating b {color:#78e8b9;font-weight:750}.floating .dot {width:8px;height:8px;border-radius:50%;background:#78e8b9;box-shadow:0 0 0 5px rgba(120,232,185,.1)}
+    .float-a {top:67px;right:-1px}.float-b {bottom:62px;left:-19px}
+    section.features {padding-top:30px;padding-bottom:105px}
+    .section-kicker {font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:var(--cyan);font-weight:750}
+    .section-heading {display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:30px}
+    h2 {margin:13px 0 0;font-size:clamp(30px,3.5vw,45px);letter-spacing:-.05em;line-height:1.15}
+    .section-note {max-width:295px;color:#9caac1;font-size:13px;line-height:1.75}
+    .tiles {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .tile {background:linear-gradient(150deg,rgba(29,40,62,.75),rgba(14,22,37,.75));border:1px solid var(--line);border-radius:19px;padding:29px;min-height:239px;transition:transform .2s,border-color .2s}
+    .tile:hover {transform:translateY(-4px);border-color:rgba(98,228,224,.39)}
+    .tile-icon {width:46px;height:46px;display:grid;place-items:center;color:var(--cyan);background:rgba(98,228,224,.075);border:1px solid rgba(98,228,224,.15);border-radius:13px}
+    .tile h3 {font-size:20px;letter-spacing:-.025em;margin:22px 0 8px}.tile p {margin:0;font-size:13px;color:#9cacbf;line-height:1.8}
+    .banner {margin-bottom:88px;border-radius:26px;background:linear-gradient(110deg,#162e3c,#172039 60%,#242344);border:1px solid rgba(98,228,224,.2);padding:52px 56px;display:flex;align-items:center;justify-content:space-between;gap:25px;overflow:hidden;position:relative}
+    .banner::after {content:"";position:absolute;width:400px;height:400px;border:1px solid rgba(98,228,224,.12);border-radius:50%;right:-160px;top:-160px;pointer-events:none}
+    .banner h2 {margin:10px 0 12px}.banner p {color:#afbdd0;font-size:14px;line-height:1.65;margin:0;max-width:480px}
+    footer {border-top:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 0 40px;color:#8494ab;font-size:12px}
+    .textlink {border:none;background:none;color:#bfcfe0;padding:0;cursor:pointer;font-weight:650}
+    .toast {position:fixed;bottom:25px;left:50%;transform:translate(-50%,30px);border-radius:12px;padding:14px 20px;background:#d9fff8;color:#0c3035;font-size:13px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:20;box-shadow:0 12px 30px rgba(0,0,0,.22)}
+    .toast.show {opacity:1;transform:translate(-50%,0)}
+    @media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:75px;padding-bottom:65px}.visual{min-height:430px}.section-note{display:none}.tiles{grid-template-columns:1fr}.tile{min-height:0}.banner{padding:38px;flex-wrap:wrap}.float-a{right:6%}.float-b{left:6%}}
+    @media(max-width:520px){.shell{padding:0 19px}header{height:73px}nav a:not(.nav-cta){display:none}nav{gap:0}.nav-cta{padding:10px 13px;font-size:11px}.brand{font-size:19px}.brand-mark{width:36px;height:36px}.hero{padding-top:60px;gap:4px}h1{font-size:59px}.lead{font-size:15px}.visual{min-height:400px}.ring{width:340px;height:340px}.aura{width:350px;height:350px}.chip{width:275px;height:330px;padding:23px;border-radius:24px}.chip-wave{width:108px;height:108px}.chip-wave::before{inset:-19px}.chip-wave::after{inset:-37px}.chip-bottom{left:24px;right:24px;bottom:23px}.chip-bottom strong{font-size:23px}.float-a{top:23px;right:-6px}.float-b{bottom:27px;left:-6px}.floating{font-size:10px;padding:10px 11px}section.features{padding-top:24px;padding-bottom:60px}.tile{padding:23px}.banner{margin-bottom:50px;padding:30px 25px}.banner h2{font-size:32px}footer{flex-direction:column;align-items:flex-start;gap:14px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <a href="#inicio" class="brand" aria-label="NFC, ir al inicio"><span class="brand-mark"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.7"/><path d="M8 16V8l8 8V8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>NFC</a>
+      <nav aria-label="Navegación principal"><a href="#ventajas">Ventajas</a><a href="#conectar">Cómo funciona</a><a class="nav-cta" href="#conectar">Conectar ↗</a></nav>
+    </header>
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div>
+          <div class="eyebrow">Experiencias sin contacto</div>
+          <h1 id="hero-title">Un toque.<br><span class="gradient">Infinitas<br>posibilidades.</span></h1>
+          <p class="lead">Una nueva forma de presentarte, compartir tus ideas y conectar. Sin aplicaciones, sin complicaciones. Solo acerca tu móvil.</p>
+          <div class="actions"><a class="primary" href="#ventajas">Descubrir NFC <span aria-hidden="true">↗</span></a><button class="secondary" id="shareBtn" type="button">Compartir página ↗</button></div>
+          <p class="hint"><i aria-hidden="true"></i>Diseñado para una experiencia móvil inmediata</p>
+        </div>
+        <div class="visual" aria-label="Ilustración de una tarjeta NFC inteligente">
+          <div class="aura"></div><div class="ring"></div>
+          <div class="chip"><div class="chip-top"><span>SMART CONNECTION</span><svg class="chip-logo" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M8 12c4 2 4 6 0 8m6-12c7 4 7 12 0 16m6-20c10 6 10 18 0 24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="chip-wave"><svg width="73" height="73" viewBox="0 0 80 80" fill="none" aria-hidden="true"><rect x="23" y="23" width="34" height="34" rx="8" stroke="currentColor" stroke-width="2"/><path d="M30 48V32l20 16V32" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chip-bottom"><div><strong>NFC / ONE</strong><small>TOUCH TO CONNECT</small></div><span style="color:#6de7df;font-size:25px">✧</span></div></div>
+          <div class="floating float-a"><span class="dot"></span><span><b>Conexión lista</b><br>Acerca tu dispositivo</span></div>
+          <div class="floating float-b"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12a8 8 0 0 1 8-8m-8 8a8 8 0 0 0 8 8m-3-12a5 5 0 0 1 0 8m5-12a8 8 0 0 1 0 16" stroke="#62e4e0" stroke-width="1.6" stroke-linecap="round"/></svg>Siempre a un toque</div>
+        </div>
+      </section>
+      <section class="features" id="ventajas"><div class="section-heading"><div><div class="section-kicker">Simple por naturaleza</div><h2>Menos pasos. Más conexión.</h2></div><p class="section-note">La tecnología debe facilitar los encuentros, no añadir obstáculos.</p></div>
+        <div class="tiles">
+          <article class="tile"><div class="tile-icon"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M10 18h4M10 5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Acceso inmediato</h3><p>Una etiqueta NFC compatible puede dirigir a tus visitantes a esta página con solo acercar su teléfono.</p></article>
+          <article class="tile"><div class="tile-icon"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 12a4 4 0 1 1 4 4M5 8l-2 4 4 2m12 2 2-4-4-2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 19h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3>Siempre actualizable</h3><p>Actualiza el contenido de tu sitio sin tener que reprogramar la etiqueta, siempre que la URL sea la misma.</p></article>
+          <article class="tile"><div class="tile-icon"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9a8 8 0 0 1 16 0M8 13a4 4 0 0 1 8 0M12 18v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3>Una sola dirección</h3><p>Un punto de entrada para compartir información, proyectos, enlaces y nuevas experiencias digitales.</p></article>
+        </div>
+      </section>
+      <section id="conectar" class="banner"><div><div class="section-kicker">El siguiente paso</div><h2>Tu mundo, a un toque.</h2><p>Comparte esta página con quien quieras. Cuando esté publicada, podrás grabar su dirección en tu etiqueta NFC.</p></div><button class="primary" id="copyBtn" type="button">Copiar enlace <span aria-hidden="true">↗</span></button></section>
+    </main>
+    <footer><span>© <span id="year">2026</span> NFC · Diseñado para conectar.</span><button class="textlink" id="footerShare" type="button">Compartir ↗</button></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+    (() => {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const toast = document.getElementById('toast'); let timer;
+      function notify(message){ toast.textContent = message; toast.classList.add('show'); clearTimeout(timer); timer = setTimeout(() => toast.classList.remove('show'), 2800); }
+      async function copyLink(){
+        if(location.protocol === 'file:'){ notify('Publica la web para obtener un enlace NFC'); return; }
+        try { await navigator.clipboard.writeText(location.href); notify('Enlace copiado al portapapeles'); }
+        catch { notify('Copia el enlace desde la barra del navegador'); }
+      }
+      async function share(){
+        if(location.protocol === 'file:'){ notify('Publica la web para poder compartirla'); return; }
+        if(navigator.share){ try {await navigator.share({title:document.title,url:location.href}); } catch (e){ if(e.name !== 'AbortError') await copyLink(); } }
+        else await copyLink();
+      }
+      document.getElementById('shareBtn').addEventListener('click',share);
+      document.getElementById('footerShare').addEventListener('click',share);
+      document.getElementById('copyBtn').addEventListener('click',copyLink);
+    })();
+  </script>
+</body>
+</html>
